@@ -2,19 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Good Driver Incentive Program</title>
+  <title>Login - Good Driver Incentive Program</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Nav bar: these two links create the Home and About tabs -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </nav>
+  <div class="container">
+    <!-- Nav bar: these two links create the Home and About tabs -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
 
-  <main>
-    <h1>Good Driver Incentive Program</h1>
-    <p>Welcome! This is a placeholder home page.</p>
-  </main>
+    <main>
+      <h1>Good Driver Incentive Program</h1>
+      <p style="text-align: center;">Welcome! Please log in to continue.</p>
+
+      <!-- Login does not currently work, just a placeholder for when we do implement -->
+      <form action="#" method="POST" class="login-form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter username">
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter password">
+        </div>
+
+        <!-- Using button prevents the form from submitting/refreshing the page -->
+        <button type="button">Log In</button>
+      </form>
+    </main>
+  </div>
 </body>
 </html>
