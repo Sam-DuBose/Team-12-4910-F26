@@ -1,8 +1,8 @@
 CREATE TABLE AboutPage (
   about_id INT PRIMARY KEY,
   team_number INT NOT NULL,
-  version_number INT NOT NULL
-  release_date DATE NOT NULL
+  version_number INT NOT NULL,
+  release_date DATE NOT NULL,
   product_name VARCHAR(100) NOT NULL,
   product_description VARCHAR(500) NOT NULL
 );
