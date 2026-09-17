@@ -20,8 +20,8 @@ VALUES (
   1,
   12,
   1,
-  '2026-09-17' 
---wasnt sure what date to use so i uded todays 
-  'Good Driver Insentive'
+  '2026-09-17',
+-- wasnt sure what date to use so i uded todays 
+  'Good Driver Insentive',
   'An app that rewards truck drivers with points fpr good driving and points are redeamable for items in the catalog'
   );
