@@ -87,3 +87,42 @@ button {
 button:hover {
   background-color: #004494;
 }
+
+/* Product Catalog Styles */
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.catalog-table th,
+.catalog-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.status.in-stock {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status.out-of-stock {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.catalog-empty {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  padding: 20px 10px;
+}
