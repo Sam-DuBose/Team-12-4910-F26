@@ -5,6 +5,6 @@ CREATE TABLE PointChangeLog (
     reason VARCHAR(255) NOT NULL,
     datetime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (logID),
-    FOREIGN KEY (driverID)REFERENCES driver_user(userID)
+    PRIMARY KEY (point_log_id),
+    FOREIGN KEY (driver_id)REFERENCES DriverUser(driver_id)
 );
