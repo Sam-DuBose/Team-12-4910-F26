@@ -7,6 +7,6 @@ CREATE TABLE DriverAppLog (
     datetime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY (app_log_id),
-    FOREIGN KEY (driver_id) REFERENCES driver_user(user_id),
-    FOREIGN KEY (sponsor_id) REFERENCES sponsor_company(sponsor_id)
+    FOREIGN KEY (driver_id) REFERENCES DriverUser(user_id),
+    FOREIGN KEY (sponsor_id) REFERENCES Sponsor(sponsor_id)
 );
