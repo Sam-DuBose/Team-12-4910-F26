@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <title>About - Good Driver Incentive Program</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
   <div class="container">
-    <!-- Nav bar: these two links create the Home and About tabs -->
+    <!-- Nav bar: updated links to use Flask routes -->
     <nav>
-      <a href="FrontPage.html">Home</a>
-      <a href="about.html">About</a>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
     </nav>
 
     <main>

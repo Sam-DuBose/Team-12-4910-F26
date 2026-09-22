@@ -1,11 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, render_template
 
-about_bp = Blueprint("about", __name__, url_prefix="/api")
+about_bp = Blueprint("about", __name__)
 
-
-@about_bp.get("/about")
+@about_bp.route("/about")
 def get_about():
-    return jsonify({
-        "message": "About route is working"
-    })
-  
+    return render_template("about.html")
