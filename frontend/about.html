@@ -15,22 +15,27 @@
 
     <main>
       <h1>About</h1>
+      <!-- Values come from the AboutPage table via the /about route in Backend/routes/about.py -->
+      {% if about %}
       <dl class="about-info">
         <dt>Product Name</dt>
-        <dd>Good Driver Incentive Program</dd>
+        <dd>{{ about.product_name }}</dd>
 
         <dt>Product Description</dt>
-        <dd>A web application that rewards truck drivers with points for good driving behavior, redeemable for products in their sponsor company's catalog.</dd>
+        <dd>{{ about.product_description }}</dd>
 
         <dt>Team #</dt>
-        <dd>12</dd>
+        <dd>{{ about.team_number }}</dd>
 
         <dt>Version # (Sprint #)</dt>
-        <dd>1</dd>
+        <dd>{{ about.version_number }}</dd>
 
         <dt>Release Date</dt>
-        <dd>2026-09-17</dd>
+        <dd>{{ about.release_date }}</dd>
       </dl>
+      {% else %}
+      <p class="catalog-empty">About information is currently unavailable.</p>
+      {% endif %}
     </main>
   </div>
 </body>
