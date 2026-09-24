@@ -5,5 +5,7 @@ CREATE TABLE ProductCatalog (
   description VARCHAR(255),
   point_cost INT NOT NULL,
   Availability BOOLEAN,
-  image_url VARCHAR(500)
+  image_url VARCHAR(500),
+
+  FOREIGN KEY (sponsor_id) REFERENCES Sponsor(sponsor_id)
 );
