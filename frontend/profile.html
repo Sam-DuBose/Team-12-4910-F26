@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="driver_dashboard.html">Back to Dashboard</a>
+      <a href="FrontPage.html">Log Out</a>
+    </nav>
+    <main>
+      <h1 style="text-align: center;">My Profile</h1>
+      <div style="text-align: center;">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Account Type:</strong> {{ user.user_type }}</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
