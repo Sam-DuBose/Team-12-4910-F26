@@ -4,7 +4,7 @@
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     email VARCHAR(100) NOT NULL,
-    password_hash VARCHAR(255) NOT NULL
+    password_hash VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (admin_user_id),
     FOREIGN KEY (user_id) REFERENCES UserAccount(user_id)
