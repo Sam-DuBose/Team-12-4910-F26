@@ -17,5 +17,12 @@ def health():
         "status": "ok"
     }
 
+@app.after_request
+def allow_amplify(response):
+    response.headers["Access-Control-Allow-Origin"] = (
+        "https://main.d13wzj1s6istn6.amplifyapp.com"
+    )
+    return response
+
 if __name__ == "__main__":
     app.run(debug=True)
