@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from routes.about import about_bp
 from routes.login import auth_bp
 
@@ -9,8 +9,8 @@ app.register_blueprint(auth_bp)
 
 @app.route('/')
 def home():
-    return render_template('FrontPage.html')
-
+    return redirect("https://main.d13wzj1s6istn6.amplifyapp.com/")
+    
 @app.get("/api/health")
 def health():
     return {
