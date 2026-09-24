@@ -4,6 +4,8 @@ from routes.login import auth_bp
 
 app = Flask(__name__, template_folder='../frontend', static_folder='../frontend')
 
+app.secret_key = 'cookiecheesecake'
+
 app.register_blueprint(about_bp)
 app.register_blueprint(auth_bp)
 

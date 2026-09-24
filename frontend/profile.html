@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>My Profile</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
   <div class="container">
     <nav>
-      <a href="driver_dashboard.html">Back to Dashboard</a>
-      <a href="FrontPage.html">Log Out</a>
+      <a href="/dashboard">Back to Dashboard</a>
+      <a href="/logout">Log Out</a>
     </nav>
     <main>
       <h1 style="text-align: center;">My Profile</h1>
