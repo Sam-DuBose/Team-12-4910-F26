@@ -5,5 +5,5 @@ CREATE TABLE UserAccount (
   password_hash VARCHAR(255) NOT NULL,
   user_type VARCHAR(20) NOT NULL,
   failed_logins INT NOT NULL DEFAULT 0,
-  account_locked BOOLEAN NOT NULL DEFAULT FALSE,
+  account_locked BOOLEAN NOT NULL DEFAULT FALSE
 );
