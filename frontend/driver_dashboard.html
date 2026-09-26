@@ -16,7 +16,7 @@
       <p style="text-align: center;">Welcome, Driver. Your points and catalog rewards will appear here.</p>
 
       <h2>Points Balance</h2>
-      <p class="catalog-empty">Your current point balance will appear here once connected to your account.</p>
+      <p><span class="status in-stock" style="font-size: 1.5em;">{{ points }} Points</span></p>
 
       <h2>Point History</h2>
       <table class="catalog-table">
@@ -29,9 +29,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td colspan="4" class="catalog-empty">Point change history will appear here once connected to your account.</td>
-          </tr>
+          {% if history %}
+            {% for row in history %}
+            <tr>
+              <td>{{ row.datetime }}</td>
+              <td>{% if row.points_change > 0 %}+{% endif %}{{ row.points_change }}</td>
+              <td>{{ row.sponsor_name }}</td>
+              <td>{{ row.reason }}</td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="4" class="catalog-empty">No point history available yet.</td>
+            </tr>
+          {% endif %}
         </tbody>
       </table>
     </main>

@@ -1,4 +1,5 @@
 from flask import Blueprint, request, render_template, session, redirect
+from database import get_db_connection
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -25,22 +26,53 @@ def login():
 @auth_bp.route('/dashboard')
 def dashboard():
     if 'username' not in session:
-        return render_template('FrontPage.html')
+        return redirect('/')
     
     current_user = session['username']
     
-    # Load the correct template based on the user session
     if current_user == "admin":
         return render_template('admin_dashboard.html')
     elif current_user == "sponsor":
         return render_template('sponsor_dashboard.html')
     else:
-        return render_template('driver_dashboard.html')
+        points = 0
+        history = []
+        
+        try:
+            conn = get_db_connection()
+            with conn.cursor() as cur:
+                cur.execute("""
+                    SELECT d.driver_id, d.points 
+                    FROM DriverUser d
+                    JOIN UserAccount u ON d.user_id = u.user_id
+                    WHERE u.username = %s
+                """, (current_user,))
+                driver = cur.fetchone()
+                
+                if driver:
+                    points = driver['points']
+                    
+                    cur.execute("""
+                        SELECT p.datetime, p.points_change, p.reason, s.sponsor_name
+                        FROM PointChangeLog p
+                        JOIN DriverUser d ON p.driver_id = d.driver_id
+                        JOIN Sponsor s ON d.sponsor_id = s.sponsor_id
+                        WHERE p.driver_id = %s
+                        ORDER BY p.datetime DESC
+                    """, (driver['driver_id'],))
+                    history = cur.fetchall()
+        except Exception as e:
+            print(f"Database error: {e}")
+        finally:
+            if 'conn' in locals() and conn.open:
+                conn.close()
+
+        return render_template('driver_dashboard.html', points=points, history=history)
 
 @auth_bp.route('/profile')
 def profile():
     if 'username' not in session:
-        return render_template('FrontPage.html') 
+        return render_template('index.html') 
     
     current_user = session['username']
     
