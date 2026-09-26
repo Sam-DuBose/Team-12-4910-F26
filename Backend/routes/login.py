@@ -55,4 +55,4 @@ def profile():
 @auth_bp.route('/logout')
 def logout():
     session.pop('username', None)
-    return render_template('FrontPage.html')
+    return redirect('/')

@@ -11,7 +11,7 @@ app.register_blueprint(auth_bp)
 
 @app.route('/')
 def home():
-    return redirect("https://main.d13wzj1s6istn6.amplifyapp.com/")
+    return render_template('index.html')
     
 @app.get("/api/health")
 def health():
